@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipes</title>
+  <link rel="stylesheet" href="css/slate.css" />
+  <link rel="stylesheet" href="css/recipes-light-20260827-v2.css" />
+</head>
+
+<body data-sidebar-collapsed="true">
+
+  <header class="page-header">
+    <div class="page-header-main">
+      <h1>Recipes</h1>
+      <p class="subtitle">Clean, simple and printable.</p>
+    </div>
+  </header>
+
+  <nav class="link-row" aria-label="Primary">
+    <a href="index.html?v=20260827-4" aria-current="page">All Recipes</a>
+</nav>
+
+  <main class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar card" aria-label="Recipe navigation">
+      <div class="sidebar-title">Browse</div>
+      <div class="sidebar-search">
+        <input id="recipeSearch" type="text" placeholder="Search recipes…" autocomplete="off" />
+      </div>
+      <div id="sidebarContent" class="text-muted">Loading…</div>
+    </aside>
+
+    <!-- Main -->
+    <section>
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">All Recipes</div>
+            
+          </div>
+        </div>
+        <div id="allRecipes" class="text-muted">Loading…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p class="footer-note">A personal collection of clean, printable recipes.</p>
+  </footer>
+
+  <script src="js/sidebar.js"></script>
+  <script src="js/cook-mode.js" defer></script>
+</body>
+</html>

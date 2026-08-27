@@ -1,0 +1,233 @@
+/* Layout wrapper */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 72px; /* below your sticky pill nav */
+  align-self: start;
+  max-height: calc(100vh - 90px);
+  overflow: auto;
+}
+
+.sidebar .sidebar-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.sidebar .sidebar-search {
+  margin-bottom: 10px;
+}
+
+.sidebar input[type="text"] {
+  width: 100%;
+}
+
+.sidebar details {
+  margin-bottom: 10px;
+}
+
+.sidebar .cat-count {
+  margin-left: 6px;
+  opacity: 0.8;
+  font-size: 0.75rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 0;
+}
+
+.sidebar li {
+  margin: 6px 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.7);
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  border-color: rgba(148, 163, 184, 0.55);
+  background: rgba(30, 41, 59, 0.75);
+  text-decoration: none;
+}
+
+.sidebar a[aria-current="page"] {
+  border-color: rgba(74, 222, 128, 0.95);
+  background: linear-gradient(135deg, rgba(59,130,246,0.35), rgba(34,197,94,0.35));
+}
+
+/* Main content tweaks for recipes */
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.recipe-meta .badge {
+  font-size: 0.72rem;
+}
+
+/* Recipe metadata uses light, semantic pills instead of the legacy slate chips. */
+.recipe-meta .badge {
+  padding: 5px 10px;
+  border: 1px solid #bfdbfe;
+  color: #1e40af !important;
+  background: #eff6ff;
+  font-weight: 650;
+  box-shadow: none;
+}
+
+.recipe-meta .badge:first-child {
+  color: #166534 !important;
+  background: #ecfdf3;
+  border-color: #86efac;
+}
+
+.recipe-meta .badge:nth-child(3) {
+  color: #92400e !important;
+  background: #fffbeb;
+  border-color: #fcd34d;
+}
+
+.recipe-meta .badge-dot {
+  background: #22c55e;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+    max-height: none;
+  }
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Light home-server theme alignment.
+   These rules intentionally replace the original slate/navy recipe chrome. */
+.link-row {
+  border-bottom: 1px solid var(--home-border, #dfe3e8);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 8px rgba(15, 23, 42, 0.07);
+  backdrop-filter: blur(10px);
+}
+
+.link-row a {
+  color: var(--home-blue, #2563eb) !important;
+  background: #f8fafc;
+  border-color: #cfd5dc;
+  box-shadow: none;
+}
+
+.link-row a:hover {
+  color: #ffffff !important;
+  background: var(--home-blue-hover, #1d4ed8);
+  border-color: var(--home-blue-hover, #1d4ed8);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+}
+
+.link-row a[aria-current="page"] {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #2563eb, #15803d);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+}
+
+.sidebar details.collapsible {
+  color: var(--home-text, #202124);
+  background: var(--home-surface-soft, #f8fafc);
+  border: 1px solid var(--home-border, #dfe3e8);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.sidebar details.collapsible[open] {
+  background: #ffffff;
+  border-color: #c7d2e0;
+  box-shadow: 0 2px 7px rgba(15, 23, 42, 0.06);
+}
+
+.sidebar details.collapsible > summary,
+.sidebar details.collapsible > summary::after,
+.sidebar .cat-count,
+.sidebar .collapsible-body {
+  color: var(--home-muted, #667085) !important;
+}
+
+.sidebar details.collapsible > summary {
+  padding: 4px 2px;
+  font-weight: 650;
+}
+
+.sidebar a {
+  color: var(--home-text, #202124) !important;
+  background: #ffffff;
+  border-color: var(--home-border, #dfe3e8);
+  box-shadow: none;
+}
+
+.sidebar a:hover {
+  color: var(--home-blue-hover, #1d4ed8) !important;
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.sidebar a[aria-current="page"] {
+  color: #166534 !important;
+  background: #ecfdf3;
+  border-color: #86efac;
+}
+
+/* Ingredients / steps */
+.ingredients ul,
+.procedure ol {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.ingredients li,
+.procedure li {
+  margin: 6px 0;
+}
+
+hr.soft {
+  border: 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  margin: 12px 0;
+}
+
+/* Mobile readability improvements */
+@media (max-width: 900px) {
+  .page-header h1 { font-size: 1.6rem; line-height: 1.15; }
+  .subtitle { font-size: 1rem; }
+  .ingredients li, .procedure li { line-height: 1.5; }
+  .sidebar a { padding: 10px 12px; } /* bigger tap target */
+  .link-row { flex-wrap: wrap; gap: 8px; }
+  .link-row a, .link-row button { margin: 0; }
+}

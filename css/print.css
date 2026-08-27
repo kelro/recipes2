@@ -1,0 +1,69 @@
+@media print {
+
+  /* Page setup */
+  @page {
+    margin: 0.75in;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    line-height: 1.28;   /* slightly tighter */
+    font-size: 12pt;
+  }
+
+  /* Hide non-content UI */
+  nav,
+  aside,
+  .sidebar,
+  .browse-panel,
+  .controls,
+  .tags,
+  .badges,
+  .meta,
+  .actions,
+  .print-button,
+  .screen-only {
+    display: none !important;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 20pt;
+    margin-bottom: 0.3em;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin-top: 0.85em;
+    margin-bottom: 0.3em;
+  }
+
+  /* Lists */
+  ul,
+  ol {
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+    padding-left: 1.2em;
+  }
+
+  li {
+    margin-bottom: 0.12em;
+  }
+
+  /* Paragraphs */
+  p {
+    margin: 0.3em 0;
+  }
+
+  /* Cards / panels → plain text */
+  .card,
+  .panel,
+  .box {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+}

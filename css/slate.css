@@ -1,0 +1,627 @@
+/* ==========================================================================
+   GLOBAL THEME – Polymarket-inspired
+   ========================================================================== */
+
+:root {
+  /* Base colors */
+  --bg-body: #020617;         /* page background */
+  --bg-surface: #0b1120;      /* card background */
+  --bg-surface-alt: #020617;
+  --bg-table-header: #020617;
+  --bg-table-row-alt: #020617;
+  --bg-chip: #020617;
+
+  /* Borders & outlines */
+  --border-soft: rgba(148, 163, 184, 0.35);
+  --border-strong: rgba(148, 163, 184, 0.55);
+
+  /* Text */
+  --text-primary: #e5e7eb;
+  --text-muted: #9ca3af;
+  --text-faint: #6b7280;
+
+  /* Accents */
+  --accent-blue: #3b82f6;
+  --accent-blue-soft: rgba(59, 130, 246, 0.15);
+  --accent-green: #22c55e;
+  --accent-green-soft: rgba(34, 197, 94, 0.18);
+  --accent-red: #f97373;
+  --accent-red-soft: rgba(248, 113, 113, 0.15);
+  --accent-amber: #f97316;
+  --accent-amber-soft: rgba(249, 115, 22, 0.18);
+  --accent-purple: #a855f7;
+
+  /* Shadows */
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.6);
+  --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.8);
+
+  /* Radii */
+  --radius-card: 14px;
+  --radius-chip: 999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+}
+
+/* ==========================================================================
+   RESET / BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+}
+
+/* Remove default link color underlines globally; we’ll style links manually. */
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Small-screen type tweak */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==========================================================================
+   PAGE HEADER
+   ========================================================================== */
+
+.page-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 16px 8px;
+}
+
+.page-header-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   TOP NAV / TABS – Pill-style (sticky)
+   ========================================================================== */
+
+.link-row {
+  max-width: 1200px;
+  margin: 0 auto 16px;
+  padding: 10px 16px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+
+  /* Sticky nav with slight glass effect */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.98),
+    rgba(15, 23, 42, 0.94)
+  );
+  backdrop-filter: blur(8px);
+}
+
+.link-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 32px;              /* ← key change */
+  padding: 0 14px;           /* horizontal only */
+
+  border-radius: 999px;
+  background-color: rgba(51, 65, 85, 0.95);
+  color: #f9fafb;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;            /* ← critical */
+  text-decoration: none;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.8);
+
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.link-row button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 32px;
+  padding: 0 14px;
+
+  border-radius: 999px;
+  background-color: rgba(51, 65, 85, 0.95);
+  color: #f9fafb;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;
+
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  cursor: pointer;
+}
+
+.link-row a:hover {
+  background-color: rgba(59, 130, 246, 0.95);     /* bright blue */
+  border-color: rgba(147, 197, 253, 0.95);
+  color: #f9fafb;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.95);
+}
+
+.link-row a[aria-current="page"] {
+  background: linear-gradient(135deg, #3b82f6, #22c55e); /* blue→green */
+  border-color: rgba(74, 222, 128, 0.95);
+  color: #020617;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   CARDS – core layout (used across all pages)
+   ========================================================================== */
+
+.card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  padding: 14px 16px 12px;
+  margin-bottom: 16px;
+}
+
+/* Slightly “flatter” look, similar to Polymarket cards */
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Info / note box inside cards (used on slate & angles pages) */
+.card-info-box {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: radial-gradient(
+    circle at top left,
+    rgba(30, 64, 175, 0.45),
+    rgba(15, 23, 42, 0.95)
+  );
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* base table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+thead {
+  background-color: var(--bg-table-header);
+}
+
+thead th {
+  text-align: left;
+  padding: 8px 10px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--bg-table-row-alt);
+}
+
+tbody tr:hover {
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+td {
+  padding: 7px 10px;
+  vertical-align: middle;
+}
+
+/* Right-align numeric columns by default if table adds these utility classes */
+td.numeric,
+th.numeric {
+  text-align: right;
+}
+
+/* Colored numeric values (pos/neg) */
+.table-pos {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.table-neg {
+  color: var(--accent-red);
+  font-weight: 600;
+}
+
+.table-soft {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   CHIPS / BADGES / BUTTONS
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: var(--radius-chip);
+  background-color: var(--bg-chip);
+  border: 1px solid var(--border-soft);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  gap: 4px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: var(--accent-blue);
+}
+
+/* reused in some places (e.g. epa rating badge) */
+.chip-primary {
+  background-color: var(--accent-blue-soft);
+  color: #bfdbfe;
+  border-color: rgba(59, 130, 246, 0.6);
+}
+.chip-green {
+  background-color: var(--accent-green-soft);
+  color: #bbf7d0;
+  border-color: rgba(34, 197, 94, 0.6);
+}
+.chip-red {
+  background-color: var(--accent-red-soft);
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.7);
+}
+
+/* Generic buttons (e.g. “Compare Matchup”, “Print / Save PDF”) */
+button {
+  font-family: inherit;
+}
+
+.button-primary,
+button.primary {
+  border: none;
+  border-radius: var(--radius-chip);
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #020617;
+  background: linear-gradient(135deg, #3b82f6, #22c55e);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.7);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.button-primary:hover,
+button.primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.9);
+}
+
+.button-primary:disabled,
+button.primary:disabled {
+  opacity: 0.55;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   TOGGLES (Season / Last 4 weeks, etc.)
+   ========================================================================== */
+
+.toggle-group {
+  display: inline-flex;
+  border-radius: var(--radius-chip);
+  padding: 2px;
+  background-color: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.8);
+}
+
+.toggle-option {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--radius-chip);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.toggle-option.active {
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-purple));
+  color: #020617;
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 0.82rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+  background-color: rgba(15, 23, 42, 0.9);
+  color: var(--text-primary);
+}
+
+input::placeholder {
+  color: var(--text-faint);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5);
+}
+
+/* radio / checkbox inline labels used on matchup tool */
+.radio-label,
+.radio-option {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   COLLAPSIBLE SECTIONS (details/summary)
+   ========================================================================== */
+
+details.collapsible {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-soft);
+  background-color: var(--bg-surface);
+  box-shadow: var(--shadow-soft);
+  padding: 6px 10px 10px;
+  margin-bottom: 16px;
+}
+
+details.collapsible[open] {
+  border-color: var(--border-strong);
+}
+
+details.collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  position: relative;
+}
+
+details.collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.collapsible > summary::after {
+  content: "▾";
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--text-muted);
+  transition: transform var(--transition-fast);
+}
+
+details.collapsible[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+/* for the body content inside <details> */
+.collapsible-body {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   ANGLES PAGE TWO-COLUMN HELPERS
+   ========================================================================== */
+
+.angles-column {
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+  overflow-x: auto;
+}
+
+.angles-column table {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.page-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px 24px;
+}
+
+.footer-note {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-green {
+  color: var(--accent-green);
+}
+
+.text-red {
+  color: var(--accent-red);
+}
+
+.text-blue {
+  color: var(--accent-blue);
+}
+
+.text-purple {
+  color: var(--accent-purple);
+}
+
+/* visually-hidden (for captions, etc.) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.data-updated {
+  max-width: 1200px;          /* match your content width */
+  margin: 12px auto 18px;     /* center horizontally */
+  padding: 8px 14px;
+
+  font-family: inherit;       /* FIX font mismatch */
+  font-size: 0.8rem;
+  line-height: 1.4;
+
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;       /* pill style */
+  text-align: center;         /* center text */
+
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.data-updated .muted {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.6);
+  background: rgba(15,23,42,.95);
+  color: #e5e7eb;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.btn:hover {
+  background: rgba(30,41,59,.95);
+}
+.btn-sm {
+  font-size: 0.75rem;
+}
+
+
