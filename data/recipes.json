@@ -608,10 +608,10 @@
     "source": "Internet recipe"
   },
   {
-    "title": "Tahouli",
-    "slug": "tahouli",
+    "title": "Tabouli",
+    "slug": "tabouli",
     "category": "Appetizers",
-    "path": "recipes/tahouli.html",
+    "path": "recipes/tabouli.html",
     "author": "Suzy Karadsheh, The Mediterranean Disk",
     "source": "https://www.themediterraneandish.com/tabouli-salad/"
   },

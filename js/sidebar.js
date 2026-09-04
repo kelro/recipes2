@@ -46,6 +46,17 @@
     const currentItem = items.find(r => (r.path || "").endsWith(currentPath));
     const currentCategory = currentItem ? (currentItem.category || "Uncategorized") : null;
 
+    if (isRecipePage && currentItem) {
+      const nav = document.querySelector(".link-row");
+      if (nav && !nav.querySelector(".recipe-edit-link")) {
+        const edit = document.createElement("a");
+        edit.className = "recipe-edit-link";
+        edit.href = `/home/recipes/builder/?edit=${encodeURIComponent(currentItem.slug)}`;
+        edit.textContent = "Edit Recipe";
+        nav.append(edit);
+      }
+    }
+
     function escapeHtml(s) {
       return String(s ?? "")
         .replaceAll("&", "&amp;")
