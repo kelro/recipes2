@@ -121,6 +121,62 @@
   overflow-wrap: anywhere;
 }
 
+/* Keep recipe body copy regular-weight. Older generated pages sometimes wrap
+   measurements or complete lines in <strong>, so normalize those descendants. */
+.recipe-section p,
+.recipe-section li,
+.recipe-section td,
+.ingredients li,
+.ingredients li *,
+.procedure li,
+.procedure li *,
+.recipe-notes,
+.recipe-notes *,
+.card-info-box,
+.card-info-box *,
+.nutrition-table td,
+.nutrition-table td * {
+  font-weight: 400 !important;
+}
+
+/* Section titles and nutrition column headings remain visually distinct. */
+.recipe-section .card-title,
+.nutrition-table th {
+  font-weight: 650;
+}
+
+.nutrition-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.nutrition-table {
+  width: 100%;
+  max-width: 640px;
+  border-collapse: collapse;
+  margin-top: 8px;
+  color: #475467;
+  font-size: 0.9rem;
+}
+
+.nutrition-table th,
+.nutrition-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #dfe3e8;
+  text-align: left;
+}
+
+.nutrition-table th {
+  color: #344054;
+  background: #f8fafc;
+}
+
+.nutrition-table th:last-child,
+.nutrition-table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
 .recipe-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -227,10 +283,8 @@
   margin: 6px 0;
 }
 
-/* Measurements in older generated recipes used <strong>; display them normally. */
-.ingredients li strong {
-  font-weight: 400;
-}
+/* Measurements in older generated recipes use <strong>; the shared
+   recipe-section typography rule above displays them normally. */
 
 hr.soft {
   border: 0;

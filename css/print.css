@@ -66,4 +66,31 @@
     margin: 0 !important;
   }
 
+  /* Preserve nutritional information as a compact, readable table. */
+  .nutrition-table-wrap {
+    overflow: visible !important;
+  }
+
+  .nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+
+  .nutrition-table th,
+  .nutrition-table td {
+    padding: 0.18em 0.35em;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .nutrition-table th:first-child,
+  .nutrition-table td:first-child {
+    text-align: left;
+  }
+
+  .nutrition-table th:last-child,
+  .nutrition-table td:last-child {
+    text-align: right;
+  }
+
 }

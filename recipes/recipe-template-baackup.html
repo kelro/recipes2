@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RECIPE_TITLE</title>
+
+  <!-- REQUIRED STYLES -->
+  <link rel="stylesheet" href="../css/slate.css" />
+  <link rel="stylesheet" href="../css/recipes-light-20260827-v2.css" />
+  <link rel="stylesheet" href="../css/print.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       PAGE HEADER (TITLE + BADGES)
+  ========================================================= -->
+  <header class="page-header">
+    <div class="page-header-main">
+      <h1>RECIPE_TITLE</h1>
+      <p class="subtitle">Short description goes here.</p>
+
+      <div class="recipe-meta">
+       <span class="badge"><span class="badge-dot"></span>CATEGORY <!-- must be plural (see category standards) --></span>
+        <span class="badge">METHOD</span>
+        <span class="badge">TIME</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       NAV BAR (DO NOT MODIFY STRUCTURE)
+  ========================================================= -->
+  <nav class="link-row" aria-label="Primary">
+    <a href="../index.html?v=20260827-4">All Recipes</a>
+<a href="#" aria-current="page">RECIPE_TITLE</a>
+    <button class="btn btn-sm" onclick="window.print()">Print</button>
+  </nav>
+
+  <!-- =========================================================
+       MAIN LAYOUT
+  ========================================================= -->
+  <main class="layout">
+
+    <!-- SIDEBAR (REQUIRED — DO NOT MODIFY) -->
+    <aside class="sidebar card" aria-label="Recipe navigation">
+      <div class="sidebar-title">Browse</div>
+      <div class="sidebar-search">
+        <input
+          id="recipeSearch"
+          type="text"
+          placeholder="Search recipes…"
+          autocomplete="off"
+        />
+      </div>
+      <div id="sidebarContent" class="text-muted">Loading…</div>
+    </aside>
+
+    <!-- RECIPE CONTENT -->
+    <section>
+
+      <!-- INGREDIENTS -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Ingredients</div>
+            <div class="card-subtitle">Optional short ingredient note.</div>
+          </div>
+        </div>
+
+        <div class="ingredients">
+          <ul>
+            <li>Ingredient with quantity</li>
+            <li>Ingredient with quantity</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROCEDURE -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Procedure</div>
+            <div class="card-subtitle">Optional short procedure note.</div>
+          </div>
+        </div>
+
+        <div class="procedure">
+          <ol>
+            <li>Step one</li>
+            <li>Step two</li>
+          </ol>
+        </div>
+
+        <hr class="soft" />
+
+        <!-- NOTES -->
+        <div class="card-info-box">
+          <strong>Notes:</strong> Optional tips, storage notes, or variations.
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+  <footer class="page-footer">
+    <p class="footer-note">
+      Category: <span class="text-muted">CATEGORY <!-- plural only --></span><br />
+      Author: <span class="text-muted">AUTHOR</span><br />
+      Source: <span class="text-muted">SOURCE</span>
+    </p>
+  </footer>
+
+  <!-- REQUIRED SCRIPT -->
+  <script src="../js/sidebar.js"></script>
+</body>
+</html>
