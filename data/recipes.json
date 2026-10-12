@@ -131,6 +131,14 @@
     "source": "Blue Zones Official Recipes"
   },
   {
+    "title": "Cod Fish",
+    "slug": "cod-fish",
+    "category": "Main Dishes",
+    "path": "recipes/cod-fish.html",
+    "author": "Internet",
+    "source": "Internet"
+  },
+  {
     "title": "Copycat Van Stapele Cookies (Amsterdam Cookies)",
     "slug": "copycat-van-stapele-cookies",
     "category": "Desserts",
